@@ -1,23 +1,32 @@
 .main-page-container {
-    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #141414;
+    flex-direction: column;
+    height: 100vh; // Take up full screen
 
-    .wip-container {
-        padding: 1rem;
-        text-align: center;
-        /* remove align-content here—it has no effect since this is a single-line flex setup */
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: rgb(255, 255, 255);
-        }
+    .header-container {
+        height: 80px; // Fixed height for navbar
+        flex-shrink: 0;
+    }
 
-        p {
-            font-size: 1.2rem;
-            color: #d3d0d0;
+    .content-container {
+        flex: 1; // Fill remaining vertical space
+        overflow-y: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .wip-container {
+            text-align: center;
+
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+                color: #666;
+            }
         }
     }
 }
