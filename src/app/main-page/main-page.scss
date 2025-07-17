@@ -1,31 +1,40 @@
-.main-page-container {
+.main-page-wrapper {
     display: flex;
-    flex-direction: column;
-    height: 100vh; // Take up full screen
+    justify-content: center;
+    background-color: inherit;
 
-    .header-container {
-        height: 80px; // Fixed height for navbar
-        flex-shrink: 0;
-    }
-
-    .content-container {
-        flex: 1; // Fill remaining vertical space
-        overflow-y: auto;
+    .main-page-container {
+        width: 100%;
+        max-width: 1440px;
+        min-height: 100vh;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); // optional subtle shadow
 
-        .wip-container {
-            text-align: center;
+        .header-container {
+            height: 80px; // Fixed height for navbar
+            flex-shrink: 0;
+        }
 
-            h1 {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-            }
+        .content-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-            p {
-                font-size: 1.2rem;
-                color: #666;
+            .wip-container {
+                text-align: center;
+
+                h1 {
+                    font-size: 2.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                    color: #666;
+                }
             }
         }
     }
