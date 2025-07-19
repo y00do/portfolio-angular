@@ -9,10 +9,19 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        background-color: white;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); // optional subtle shadow
 
+        .section-landing {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            background-color: var(--main-page-background);
+            color: var(--primary);
+        }
+
         .header-container {
+            width: 100%;
             height: 80px; // Fixed height for navbar
             flex-shrink: 0;
         }
