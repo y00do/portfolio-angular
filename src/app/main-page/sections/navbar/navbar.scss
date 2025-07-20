@@ -1,5 +1,4 @@
 .navbar {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,23 +6,42 @@
     background-color: var(--surface);
     color: var(--secondary);
     border: 1px solid var(--border);
+    border-radius: 0.5rem;
     box-shadow: 0 0 20rem 2rem var(--box-shadow); // Soft outer glow using primary color
 
-    .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
+    .navbar-start {
+        display: flex;
+        align-items: center;
+
+        .logo {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: var(--secondary);
+        }
     }
 
-    .nav-links {
+    .navbar-end {
         display: flex;
-        list-style: none;
-        gap: 1.5rem;
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
 
-        a {
-            color: white;
-            text-decoration: none;
-            &:hover {
-                text-decoration: underline;
+        .nav-links {
+            font-weight: bold;
+            font-size: 1.2em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            list-style: none;
+            gap: 3rem;
+            color: var(--secondary);
+
+            a {
+                color: white;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
