@@ -6,6 +6,8 @@
     padding: 1rem 2rem;
     background-color: var(--surface);
     color: var(--secondary);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 20rem 2rem var(--box-shadow); // Soft outer glow using primary color
 
     .logo {
         font-size: 1.5rem;
