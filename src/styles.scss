@@ -9,13 +9,18 @@
 :root {
     --site-background: black;
     --main-page-background: #0f0f0f;
+
     --surface: #1a1a1a;
+    --surface-accent: #272727;
+    --surface-transparent: #1a1a1a10;
+
     --primary: #3e5d52;
     --primary-accent: #a7beb4;
+    --primary-transparent: #3e5d524d;
+
     --secondary: #e1eae5;
     --secondary-accent: #dce5e1;
-    --border: #272727;
-    --box-shadow: #3e5d524d;
+    --secondary-transparent: #e1eae54d;
 }
 
 html {
