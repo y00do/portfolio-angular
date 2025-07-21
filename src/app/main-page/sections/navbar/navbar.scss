@@ -3,11 +3,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 2.5rem;
-    background-color: var(--surface);
+    background-color: var(--main-page-background);
     color: var(--secondary);
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    box-shadow: 0 0 20rem 2rem var(--box-shadow); // Soft outer glow using primary color
+    border: none;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;
 
     .navbar-start {
         display: flex;
@@ -39,8 +39,10 @@
             a {
                 color: white;
                 text-decoration: none;
+                padding: 0.3rem 0;
+
                 &:hover {
-                    text-decoration: underline;
+                    border-bottom: 2px solid var(--primary);
                 }
             }
         }
@@ -51,6 +53,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            line-height: 1;
             padding: 1rem 1.5rem;
             background-color: var(--primary);
             color: white;
@@ -58,10 +61,17 @@
             border-radius: 0.5rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin: 0;
 
             &:hover {
-                background-color: darken(#3e5d52, 10%);
+                background-color: var(--primary-accent);
             }
         }
     }
+}
+
+:host(.scrolled) .navbar {
+    background-color: var(--surface);
+    border: 1px solid var(--surface-accent);
+    box-shadow: 0 0 20rem 2rem var(--primary-transparent); // Soft outer glow using primary color
 }
