@@ -11,6 +11,7 @@
         flex-direction: column;
 
         .section-landing {
+            top: 0;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -21,9 +22,10 @@
 
         .header-container {
             width: 100%;
-            height: 80px; // Fixed height for navbar
             flex-shrink: 0;
-            padding: 4rem;
+            position: sticky;
+            top: 0;
+            z-index: 999;
         }
 
         .content-container {
