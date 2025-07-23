@@ -4,15 +4,13 @@
     background-color: inherit;
 
     .main-page-container {
-        width: 100%;
-        max-width: 1440px;
-        min-height: 100vh;
+        width: 2560px;
+        min-height: 100%;
         display: flex;
         flex-direction: column;
 
         .section-landing {
-            top: 0;
-            height: 100vh;
+            height: calc(100vh - 86.38px);
             display: flex;
             flex-direction: column;
             align-content: center;
