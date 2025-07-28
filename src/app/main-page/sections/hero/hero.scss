@@ -1,16 +1,39 @@
 .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     .hero-start {
-        text-align: center;
+        width: 100%;
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
+        .profile {
+            display: grid;
+            grid-template-areas:
+                "greeting call-to-action"
+                "professional-summary professional-summary"
+                "skills-snapshot skills-snapshot";
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 3fr 2fr 1fr;
 
-        p {
-            font-size: 1.2rem;
-            color: var(--secondary);
+            > div {
+                background-color: var(--surface);
+            }
+
+            .greeting {
+                grid-area: greeting;
+            }
+
+            .call-to-action {
+                grid-area: call-to-action;
+            }
+
+            .professional-summary {
+                grid-area: professional-summary;
+            }
+
+            .skills-snapshot {
+                grid-area: skills-snapshot;
+            }
         }
     }
 }
