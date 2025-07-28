@@ -4,7 +4,8 @@
     background-color: inherit;
 
     .main-page-container {
-        width: 2560px;
+        max-width: 2560px;
+        width: 100%;
         min-height: 100%;
         display: flex;
         flex-direction: column;
@@ -29,8 +30,13 @@
         .hero-container {
             flex: 1;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            padding: 4rem 6rem;
+
+            app-hero {
+                width: 100%;
+            }
         }
     }
 }
