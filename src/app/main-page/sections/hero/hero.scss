@@ -1,18 +1,15 @@
 .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     .hero-start {
         width: 100%;
 
         .profile {
             display: grid;
+            border: 1px solid var(--surface-accent);
             grid-template-areas:
                 "greeting call-to-action"
                 "professional-summary professional-summary"
                 "skills-snapshot skills-snapshot";
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 3fr 1fr;
             grid-template-rows: 3fr 2fr 1fr;
 
             > div {
@@ -21,6 +18,10 @@
 
             .greeting {
                 grid-area: greeting;
+
+                h1 {
+                    font-size: 3em;
+                }
             }
 
             .call-to-action {
