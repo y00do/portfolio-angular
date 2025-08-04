@@ -1,5 +1,5 @@
 .navbar {
-    padding: 1rem 3rem;
+    padding: 1.5rem 3rem;
     background-color: var(--main-page-background);
     color: var(--secondary);
     border: none;
@@ -10,7 +10,7 @@
 
     .navbar-start {
         .logo {
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: bold;
             color: var(--secondary);
         }
@@ -21,7 +21,7 @@
 
         .nav-links {
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.5em;
             list-style: none;
             gap: 3rem;
             color: var(--secondary);
@@ -39,7 +39,7 @@
         }
 
         button {
-            font-size: 1em;
+            font-size: 1.5em;
             font-weight: bold;
             padding: 1rem 1.5rem;
             background-color: var(--primary);
