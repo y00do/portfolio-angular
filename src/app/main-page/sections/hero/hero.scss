@@ -3,14 +3,16 @@
         width: 100%;
 
         .profile {
-            display: grid;
-            border: 1px solid var(--surface-accent);
             grid-template-areas:
                 "greeting call-to-action"
                 "professional-summary professional-summary"
                 "skills-snapshot skills-snapshot";
             grid-template-columns: 3fr 1fr;
             grid-template-rows: 3fr 2fr 1fr;
+
+            display: grid;
+            border-radius: 1rem;
+            overflow: hidden;
 
             > div {
                 background-color: var(--surface);
@@ -19,8 +21,16 @@
             .greeting {
                 grid-area: greeting;
 
+                padding: 5rem 2rem;
+
+                ul {
+                    list-style: none;
+                    gap: 1rem;
+                }
+
                 h1 {
-                    font-size: 3em;
+                    font-size: 2.5em;
+                    color: var(--secondary-transparent);
                 }
             }
 
