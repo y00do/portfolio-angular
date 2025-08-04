@@ -10,10 +10,11 @@
             height: calc(100vh - 86.38px);
             background-color: var(--main-page-background);
             color: var(--primary);
+            width: inherit;
         }
 
         .header-container {
-            width: 100%;
+            width: inherit;
             flex-shrink: 0;
             position: sticky;
             top: 0;
@@ -23,10 +24,7 @@
         .hero-container {
             flex: 1;
             padding: 4rem 6rem;
-
-            app-hero {
-                width: 100%;
-            }
+            width: 100%;
         }
     }
 }
