@@ -3,14 +3,13 @@
         width: 100%;
 
         .profile {
+            display: grid;
             grid-template-areas:
                 "greeting call-to-action"
                 "professional-summary professional-summary"
                 "skills-snapshot skills-snapshot";
             grid-template-columns: 3fr 1fr;
             grid-template-rows: 3fr 2fr 1fr;
-
-            display: grid;
             border-radius: 1rem;
             overflow: hidden;
 
@@ -20,22 +19,48 @@
 
             .greeting {
                 grid-area: greeting;
+                padding: 4rem 3rem;
 
-                padding: 5rem 2rem;
+                // Lock the height so the layout doesn’t jump
+                min-height: 8em;
+                display: flex;
+                align-items: center;
 
                 ul {
                     list-style: none;
+                    height: 100%;
+                    min-height: 12rem;
                     gap: 1rem;
                 }
 
                 h1 {
                     font-size: 2.5em;
                     color: var(--secondary-transparent);
+                    transition:
+                        transform 0.2s ease,
+                        color 0.2s ease;
+                    transform-origin: center;
+                }
+
+                .title1 {
+                    animation: fadeInOut 9s infinite;
+                    animation-delay: 0s;
+                }
+
+                .title2 {
+                    animation: fadeInOut 9s infinite;
+                    animation-delay: 3s;
+                }
+
+                .title3 {
+                    animation: fadeInOut 9s infinite;
+                    animation-delay: 6s;
                 }
             }
 
             .call-to-action {
                 grid-area: call-to-action;
+                padding: 5rem 3rem;
             }
 
             .professional-summary {
@@ -46,5 +71,29 @@
                 grid-area: skills-snapshot;
             }
         }
+    }
+}
+
+// 🔁 Keyframes for cycling highlight effect
+@keyframes fadeInOut {
+    0%,
+    100% {
+        transform: scale(1);
+        color: var(--secondary-transparent);
+    }
+
+    10% {
+        transform: scale(1.01);
+        color: var(--secondary);
+    }
+
+    30% {
+        transform: scale(1.01);
+        color: var(--secondary);
+    }
+
+    40% {
+        transform: scale(1);
+        color: var(--secondary-transparent);
     }
 }
