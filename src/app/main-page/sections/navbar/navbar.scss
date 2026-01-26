@@ -1,8 +1,5 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2.5rem;
+    padding: 1.5rem 5rem;
     background-color: var(--main-page-background);
     color: var(--secondary);
     border: none;
@@ -12,28 +9,19 @@
         box-shadow 0.3s ease;
 
     .navbar-start {
-        display: flex;
-        align-items: center;
-
         .logo {
-            font-size: 1.5em;
+            font-size: 2.5em;
             font-weight: bold;
             color: var(--secondary);
         }
     }
 
     .navbar-end {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
         gap: 4rem;
 
         .nav-links {
             font-weight: bold;
-            font-size: 1em;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+            font-size: 1.5em;
             list-style: none;
             gap: 3rem;
             color: var(--secondary);
@@ -51,11 +39,8 @@
         }
 
         button {
-            font-size: 1em;
+            font-size: 1.5em;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 1rem 1.5rem;
             background-color: var(--primary);
             color: var(--secondary);

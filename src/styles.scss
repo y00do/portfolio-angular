@@ -20,11 +20,12 @@
 
     --secondary: #e1eae5;
     --secondary-accent: #dce5e1;
-    --secondary-transparent: #e1eae54d;
+    --secondary-transparent: #e1eae50a;
 }
 
 html {
     scroll-behavior: smooth;
+    font-size: 100%;
 }
 
 body {
@@ -33,4 +34,43 @@ body {
     max-width: 100vw;
     background-color: var(--site-background);
     font-size: 100%;
+}
+
+/* Global Flex Utilities */
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-start {
+    justify-content: start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: end;
+}
+
+.justify-space {
+    justify-content: space-between;
+}
+
+.align-start {
+    align-items: start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: end;
 }

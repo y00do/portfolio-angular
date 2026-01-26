@@ -1,0 +1,341 @@
+.hero {
+    .profile {
+        overflow: hidden;
+        padding: 4rem;
+        gap: 3rem;
+
+        .welcome-banner {
+            width: 40%;
+            padding: 1rem 1rem; /* give breathing room */
+
+            background: var(--primary);
+            border-bottom: 1px solid var(--secondary);
+            color: var(--secondary); /* readable contrast */
+            font-size: 1.2rem;
+            font-weight: bold;
+
+            span {
+                letter-spacing: 0.05em;
+            }
+        }
+
+        .profile-start {
+            gap: 5rem;
+
+            img {
+                width: 13rem;
+                height: auto;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                border-radius: 10%;
+            }
+
+            .greeting {
+                display: flex;
+                align-items: center;
+
+                ul {
+                    list-style: none;
+                    height: 100%;
+                    min-height: 12rem;
+                    gap: 1rem;
+                }
+
+                h1 {
+                    font-size: 3em;
+                    color: var(--secondary-transparent);
+                    transition:
+                        transform 0.2s ease,
+                        color 0.2s ease;
+                    transform-origin: center;
+                }
+
+                .title1 {
+                    animation: fadeInOut 9s infinite;
+                    animation-delay: 0s;
+                }
+                .title2 {
+                    animation: fadeInOut 9s infinite;
+                    animation-delay: 3s;
+                }
+                .title3 {
+                    animation: fadeInOut 9s infinite;
+                    animation-delay: 6s;
+                }
+            }
+        }
+
+        .profile-mid {
+            .professional-summary {
+                font-size: 1.3em;
+                color: var(--primary-accent);
+                line-height: 1.5;
+                width: 60rem;
+            }
+        }
+
+        .profile-end {
+            width: 100%;
+
+            .call-to-action {
+                gap: 1rem;
+
+                button {
+                    width: 14rem;
+                    padding: 1rem 0;
+                    font-size: 1.4rem;
+                    border: none;
+                    border-radius: 2rem;
+                    cursor: pointer;
+                    transition:
+                        background-color 0.25s ease,
+                        color 0.25s ease,
+                        transform 0.2s ease;
+                }
+
+                /* Secondary button: Download CV */
+                button:first-child {
+                    background-color: var(--secondary-transparent);
+                    color: var(--secondary);
+                    border: 2px dashed var(--primary-accent);
+
+                    &:hover {
+                        border: 2px solid var(--secondary);
+                    }
+                }
+
+                /* Primary button: Get in Touch */
+                button:last-child {
+                    background: var(--primary);
+                    color: var(--secondary);
+                    font-weight: bold;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+                    &:hover {
+                        background: var(--surface);
+                        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* === Animations === */
+@keyframes fadeInOut {
+    0%,
+    100% {
+        transform: scale(1);
+        color: var(--secondary-transparent);
+    }
+    10%,
+    30% {
+        transform: scale(1.01);
+        color: var(--secondary);
+    }
+    40% {
+        transform: scale(1);
+        color: var(--secondary-transparent);
+    }
+}
+
+/* === Responsiveness === */
+
+/* ~ 2K down toward desktop */
+@media (max-width: 1440px) {
+    .hero {
+        .profile-mid {
+            .professional-summary {
+                width: 60rem;
+            }
+        }
+    }
+}
+
+/* ~ half of 2K width (~1280px): set profile-start gap = 4rem */
+@media (max-width: 1350px) {
+    .hero {
+        .profile {
+            .profile-start {
+                gap: 4rem; /* <-- your requested change */
+            }
+
+            .profile-mid {
+                .professional-summary {
+                    width: 60rem;
+                }
+            }
+        }
+    }
+}
+
+/* Large tablets / smaller laptops */
+@media (max-width: 1024px) {
+    .hero {
+        .profile {
+            padding: 2.5rem;
+            gap: 3rem;
+
+            .profile-start {
+                gap: 3rem;
+
+                img {
+                    width: 10rem;
+                }
+
+                .greeting {
+                    ul {
+                        min-height: 10rem;
+                        gap: 0.75rem;
+                    }
+
+                    h1 {
+                        font-size: 2.3em;
+                        color: var(--secondary-transparent);
+                        transition:
+                            transform 0.2s ease,
+                            color 0.2s ease;
+                        transform-origin: center;
+                    }
+                }
+            }
+
+            .profile-mid {
+                .professional-summary {
+                    width: 46rem;
+                    font-size: 1.2em;
+                    line-height: 1.5;
+                }
+            }
+
+            .profile-end {
+                .call-to-action {
+                    gap: 0.75rem;
+
+                    button {
+                        width: 11rem;
+                        font-size: 1.1rem;
+                        padding: 0.85rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Tablets / small landscape */
+@media (max-width: 768px) {
+    .hero {
+        .profile {
+            padding: 2rem;
+            gap: 1.5rem;
+
+            /* If your layout uses rows, consider stacking here.
+         Uncomment if you want to force stacking:
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      */
+
+            .profile-start {
+                gap: 1rem;
+                /* center image + greeting on small screens */
+                /* display: flex; flex-direction: column; align-items: center; */
+
+                img {
+                    width: 9rem;
+                }
+
+                .greeting {
+                    ul {
+                        min-height: 9rem;
+                        gap: 0.6rem;
+                    }
+                    /* keeping h1 size as-is per request */
+
+                    h1 {
+                        font-size: 1.5rem;
+                        color: var(--secondary-transparent);
+                        transition:
+                            transform 0.2s ease,
+                            color 0.2s ease;
+                        transform-origin: center;
+                    }
+                }
+            }
+
+            .profile-mid {
+                .professional-summary {
+                    width: 100%;
+                    max-width: 36rem;
+                    font-size: 1.1em;
+                }
+            }
+
+            .profile-end {
+                width: 100%;
+
+                .call-to-action {
+                    gap: 0.75rem;
+                    /* stack buttons on small screens (optional) */
+                    /* display: flex; flex-direction: column; align-items: stretch; */
+
+                    button {
+                        width: 100%;
+                        max-width: 14rem;
+                        margin: 0 auto; /* centers when not full-width */
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    .hero {
+        .profile {
+            padding: 1.25rem;
+            gap: 1.25rem;
+
+            .profile-start {
+                gap: 1.5rem;
+
+                img {
+                    width: 8rem;
+                    border-radius: 12%;
+                }
+
+                .greeting {
+                    ul {
+                        min-height: 8rem;
+                        gap: 0.5rem;
+                    }
+
+                    /* If the heading feels too large on very small phones,
+             you can enable a slight downscale without changing the base:
+             h1 { font-size: 2.5em; }
+          */
+                }
+            }
+
+            .profile-mid {
+                .professional-summary {
+                    max-width: 28rem;
+                    width: 100%;
+                    font-size: 1.05em;
+                }
+            }
+
+            .profile-end {
+                .call-to-action {
+                    button {
+                        max-width: 100%;
+                        width: 100%;
+                        font-size: 1rem;
+                        padding: 0.8rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
