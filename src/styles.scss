@@ -20,7 +20,7 @@
 
     --secondary: #e1eae5;
     --secondary-accent: #dce5e1;
-    --secondary-transparent: #e1eae54d;
+    --secondary-transparent: #e1eae50a;
 }
 
 html {
@@ -48,7 +48,7 @@ body {
 }
 
 .justify-start {
-    justify-content: flex-start;
+    justify-content: start;
 }
 
 .justify-center {
@@ -56,15 +56,15 @@ body {
 }
 
 .justify-end {
-    justify-content: flex-end;
+    justify-content: end;
 }
 
-.justify-between {
+.justify-space {
     justify-content: space-between;
 }
 
 .align-start {
-    align-items: flex-start;
+    align-items: start;
 }
 
 .align-center {
@@ -72,5 +72,5 @@ body {
 }
 
 .align-end {
-    align-items: flex-end;
+    align-items: end;
 }

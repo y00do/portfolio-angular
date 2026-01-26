@@ -6,25 +6,24 @@
         width: 100%;
         min-height: 100%;
 
-        .section-landing {
-            height: calc(100vh - 86.38px);
-            background-color: var(--main-page-background);
-            color: var(--primary);
-            width: inherit;
-        }
-
         .header-container {
             width: inherit;
-            flex-shrink: 0;
             position: sticky;
             top: 0;
             z-index: 999;
         }
 
-        .hero-container {
-            flex: 1;
-            padding: 4rem 6rem;
-            width: 100%;
+        .section-landing {
+            height: calc(100vh - 86.38px);
+            background-color: var(--main-page-background);
+            color: var(--primary);
+            width: inherit;
+
+            .hero-container {
+                padding: 4rem 6rem;
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 }
