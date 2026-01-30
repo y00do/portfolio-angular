@@ -117,6 +117,19 @@
                 }
             }
         }
+
+        .scroll-down {
+            width: 100%;
+            height: auto;
+            padding: 1rem 0;
+            font-size: 1.2em;
+            color: var(--secondary-accent);
+
+            .scroll-down-icon {
+                // Icon scales with parent (1.2em from .scroll-down)
+                font-size: 2em;
+            }
+        }
     }
 }
 
