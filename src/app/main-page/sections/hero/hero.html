@@ -1,42 +1,71 @@
-<div class="hero flex-col align-center justify-space">
+<section
+	class="hero flex-col align-center justify-space"
+	aria-labelledby="hero-heading"
+>
 	<div class="profile flex-col align-start justify-center">
-		<div class="welcome-banner flex-row align-start justify-start">
+		<div
+			class="welcome-banner flex-row align-start justify-start"
+			role="banner"
+		>
 			<span>Welcome to my website!</span>
 		</div>
 		<div class="profile-start flex-row align-center justify-center">
 			<div class="greeting flex-col align-center justify-center">
-				<ul class="flex-col justify-center">
-					<li>
-						<h1 class="title1">I AM A SOFTWARE DEVELOPER</h1>
+				<ul class="flex-col justify-center" role="list">
+					<li role="listitem">
+						<h1
+							id="hero-heading"
+							class="title1"
+							aria-label="I am a software developer"
+						>
+							I AM A SOFTWARE DEVELOPER
+						</h1>
 					</li>
-					<li>
-						<h1 class="title2">IT SUPPORT SPECIALIST</h1>
+					<li role="listitem">
+						<h1 class="title2" aria-label="IT support specialist">
+							IT SUPPORT SPECIALIST
+						</h1>
 					</li>
-					<li>
-						<h1 class="title3">& TECH ENTHUSIAST</h1>
+					<li role="listitem">
+						<h1 class="title3" aria-label="and tech enthusiast">
+							& TECH ENTHUSIAST
+						</h1>
 					</li>
 				</ul>
 			</div>
 			<div class="profile-img flex-col align-center justify-center">
-				<img src="https://placehold.co/400x400" alt="Profile Picture" />
+				<img
+					[src]="profileImageUrl"
+					alt="Yen Do"
+					loading="eager"
+					width="400"
+					height="400"
+				/>
 			</div>
 		</div>
 		<div class="profile-mid flex-col align-center justify-center">
-			<div class="professional-summary">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-				ut convallis odio. Nullam fermentum odio vitae mollis gravida.
-				Nam convallis turpis nec eros lacinia, eget auctor dolor
-				consectetur. Ut a dolor diam. Nam rutrum dui sed aliquam
-				gravida. Aenean ac finibus mi. Vestibulum sit amet porttitor
-				magna, vitae tempor risus. Maecenas sit amet bibendum massa.
-			</div>
+			<p class="professional-summary">
+				{{ professionalSummary }}
+			</p>
 		</div>
 
 		<div class="profile-end flex-row align-center justify-start">
 			<div class="call-to-action flex-row align-center justify-center">
-				<button>Download CV</button>
-				<button>Get in Touch!</button>
+				<button
+					type="button"
+					(click)="onDownloadCV()"
+					aria-label="Download my CV"
+				>
+					Download CV
+				</button>
+				<button
+					type="button"
+					(click)="onGetInTouch()"
+					aria-label="Get in touch with me"
+				>
+					Get in Touch!
+				</button>
 			</div>
 		</div>
 	</div>
-</div>
+</section>

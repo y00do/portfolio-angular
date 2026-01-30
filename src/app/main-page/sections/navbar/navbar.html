@@ -1,16 +1,36 @@
-<nav class="navbar flex-row justify-space align-center">
+<nav
+	class="navbar flex-row justify-space align-center"
+	role="navigation"
+	aria-label="Main navigation"
+>
 	<div class="navbar-start flex-row align-center">
-		<span class="logo">YEN DO</span>
+		<a href="#home" class="logo" aria-label="Yen Do - Home">YEN DO</a>
 	</div>
 	<div class="navbar-end flex-row align-center">
-		<ul class="nav-links flex-row align-center">
-			<li><a href="#about">ABOUT</a></li>
-			<li><a href="#experience">EXPERIENCE</a></li>
-			<li><a href="#projects">PROJECTS</a></li>
+		<ul class="nav-links flex-row align-center" role="list">
+			<li role="listitem">
+				<a href="#about" aria-label="Navigate to About section"
+					>ABOUT</a
+				>
+			</li>
+			<li role="listitem">
+				<a
+					href="#experience"
+					aria-label="Navigate to Experience section"
+					>EXPERIENCE</a
+				>
+			</li>
+			<li role="listitem">
+				<a href="#projects" aria-label="Navigate to Projects section"
+					>PROJECTS</a
+				>
+			</li>
 		</ul>
 
 		<div class="nav-button flex-row align-center justify-center">
-			<button class="btn-contact">CONTACT</button>
+			<button class="btn-contact" type="button" aria-label="Contact me">
+				CONTACT
+			</button>
 		</div>
 	</div>
 </nav>
