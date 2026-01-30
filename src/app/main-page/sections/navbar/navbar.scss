@@ -51,7 +51,8 @@
             margin: 0;
 
             &:hover {
-                background-color: var(--primary-accent);
+                background: var(--surface);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
             }
         }
     }
