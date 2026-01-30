@@ -123,17 +123,37 @@
             height: auto;
             padding: 1rem 0;
             font-size: 1.2em;
-            color: var(--secondary-accent);
+            color: var(--secondary);
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
 
             .scroll-down-icon {
-                // Icon scales with parent (1.2em from .scroll-down)
+                opacity: 0.5;
                 font-size: 2em;
+                animation: scrollDownBounce 2s ease-in-out infinite;
+            }
+
+            &.scroll-down-hidden {
+                opacity: 0;
+                transform: translateY(-8px);
+                pointer-events: none;
             }
         }
     }
 }
 
 /* === Animations === */
+@keyframes scrollDownBounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
 @keyframes fadeInOut {
     0%,
     100% {
