@@ -1,0 +1,19 @@
+// Material Symbols (Google Fonts) – icon subset loaded via index.html
+// To add more icons: add the ligature name (snake_case) to the comma-separated
+// icon_names in the Material Symbols <link> in index.html, then use
+// <span class="material-symbols-outlined [mat-icon--size]">icon_name</span>
+
+.material-symbols-outlined {
+	// Scale with parent instead of fixed 24px (set by Google’s stylesheet)
+	font-size: 1em;
+	// Optional size modifiers – use when you need a specific size
+	&.mat-icon--sm {
+		font-size: 1rem;
+	}
+	&.mat-icon--md {
+		font-size: 1.5rem;
+	}
+	&.mat-icon--lg {
+		font-size: 2rem;
+	}
+}
