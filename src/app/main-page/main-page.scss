@@ -15,7 +15,8 @@
 
 		.section-landing {
 			height: calc(100vh - 86.38px);
-			background-color: var(--main-page-background);
+			background: #0f0f0f;
+			background: linear-gradient(145deg, rgba(15, 15, 15, 1) 0%, rgba(15, 15, 15, 1) 55%, rgba(0, 0, 0, 1) 100%);
 			color: var(--primary);
 			width: inherit;
 
@@ -26,14 +27,21 @@
 			}
 		}
 
-		.section-about,
+		.section-about {
+			width: inherit;
+			background-color: var(--main-page-background);
+			color: var(--secondary);
+			padding: 0;
+			min-height: 100vh;
+		}
+
 		.section-experience,
 		.section-projects {
 			width: inherit;
 			background-color: var(--main-page-background);
 			color: var(--secondary);
 			padding: 4rem 6rem;
-			min-height: 50vh;
+			min-height: 100vh;
 
 			.content-container {
 				max-width: 1200px;
