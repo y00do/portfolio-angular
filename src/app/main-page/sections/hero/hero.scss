@@ -173,29 +173,12 @@
 
 /* === Responsiveness === */
 
-/* ~ 2K down toward desktop */
-@media (max-width: 1440px) {
-    .hero {
-        .profile-mid {
-            .professional-summary {
-                width: 60rem;
-            }
-        }
-    }
-}
-
 /* ~ half of 2K width (~1280px): set profile-start gap = 4rem */
 @media (max-width: 1350px) {
     .hero {
         .profile {
             .profile-start {
                 gap: 4rem; /* <-- your requested change */
-            }
-
-            .profile-mid {
-                .professional-summary {
-                    width: 60rem;
-                }
             }
         }
     }
@@ -207,6 +190,11 @@
         .profile {
             padding: 2.5rem;
             gap: 3rem;
+
+            .welcome-banner {
+                width: 60%;
+                font-size: 1.1rem;
+            }
 
             .profile-start {
                 gap: 3rem;
@@ -223,11 +211,6 @@
 
                     h1 {
                         font-size: 2.3em;
-                        color: var(--secondary-transparent);
-                        transition:
-                            transform 0.2s ease,
-                            color 0.2s ease;
-                        transform-origin: center;
                     }
                 }
             }
@@ -260,19 +243,17 @@
     .hero {
         .profile {
             padding: 2rem;
-            gap: 1.5rem;
+            gap: 2rem;
 
-            /* If your layout uses rows, consider stacking here.
-         Uncomment if you want to force stacking:
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-      */
+            .welcome-banner {
+                width: 100%;
+                font-size: 0.95rem;
+            }
 
             .profile-start {
-                gap: 1rem;
-                /* center image + greeting on small screens */
-                /* display: flex; flex-direction: column; align-items: center; */
+                flex-direction: row;
+                gap: 1.5rem;
+                align-items: flex-start;
 
                 img {
                     width: 9rem;
@@ -283,15 +264,9 @@
                         min-height: 9rem;
                         gap: 0.6rem;
                     }
-                    /* keeping h1 size as-is per request */
 
                     h1 {
-                        font-size: 1.5rem;
-                        color: var(--secondary-transparent);
-                        transition:
-                            transform 0.2s ease,
-                            color 0.2s ease;
-                        transform-origin: center;
+                        font-size: 1.8rem;
                     }
                 }
             }
@@ -300,22 +275,18 @@
                 .professional-summary {
                     width: 100%;
                     max-width: 36rem;
-                    font-size: 1.1em;
+                    font-size: 1rem;
                 }
             }
 
             .profile-end {
-                width: 100%;
-
                 .call-to-action {
                     gap: 0.75rem;
-                    /* stack buttons on small screens (optional) */
-                    /* display: flex; flex-direction: column; align-items: stretch; */
 
                     button {
-                        width: 100%;
-                        max-width: 14rem;
-                        margin: 0 auto; /* centers when not full-width */
+                        width: 10rem;
+                        font-size: 1rem;
+                        padding: 0.85rem 0;
                     }
                 }
             }
@@ -323,31 +294,44 @@
     }
 }
 
-/* Phones */
-@media (max-width: 480px) {
+/* Phones and short displays share compact layout */
+@media (max-width: 480px), (max-height: 740px) {
     .hero {
         .profile {
             padding: 1.25rem;
             gap: 1.25rem;
+            align-items: center;
+            justify-content: center;
+
+            .welcome-banner {
+                display: none;
+            }
 
             .profile-start {
-                gap: 1.5rem;
+                flex-direction: column-reverse;
+                gap: 1rem;
+                align-items: center;
 
                 img {
-                    width: 8rem;
-                    border-radius: 12%;
+                    width: 8.5rem;
+                    height: 8.5rem;
+                    object-fit: cover;
+                    border-radius: 50%;
                 }
 
                 .greeting {
+                    width: 100%;
+
                     ul {
                         min-height: 8rem;
                         gap: 0.5rem;
+                        align-items: center;
                     }
 
-                    /* If the heading feels too large on very small phones,
-             you can enable a slight downscale without changing the base:
-             h1 { font-size: 2.5em; }
-          */
+                    h1 {
+                        font-size: 1.05rem;
+                        text-align: center;
+                    }
                 }
             }
 
@@ -355,19 +339,36 @@
                 .professional-summary {
                     max-width: 28rem;
                     width: 100%;
-                    font-size: 1.05em;
+                    font-size: 0.9rem;
+                    text-align: center;
                 }
             }
 
             .profile-end {
                 .call-to-action {
+                    width: 100%;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+
                     button {
-                        max-width: 100%;
+                        max-width: 10rem;
                         width: 100%;
-                        font-size: 1rem;
-                        padding: 0.8rem 0;
+                        font-size: 0.85rem;
+                        padding: 0.65rem 0;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media (max-height: 740px) {
+    .hero {
+        .profile {
+            .profile-mid {
+                display: none;
             }
         }
     }
