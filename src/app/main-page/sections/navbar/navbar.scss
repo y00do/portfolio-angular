@@ -61,5 +61,5 @@
 :host(.scrolled) .navbar {
     background-color: var(--surface);
     border: 1px solid var(--surface-accent);
-    box-shadow: 0 0 20rem 2rem var(--primary-transparent); // Soft outer glow using primary color
+    box-shadow: 0 0 15rem 2rem var(--primary-transparent); // Soft outer glow using primary color
 }
