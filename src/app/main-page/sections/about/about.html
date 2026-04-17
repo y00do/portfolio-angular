@@ -1,32 +1,100 @@
-<div class="about flex-col" aria-labelledby="about-heading">
-	<div class="about-layout">
-		<!-- Content column (30% on large, full width on small, appears first when stacked) -->
-		<div class="about-content-column">
-			<div class="about-content-wrapper">
-				<span id="about-label" class="about-label">ABOUT</span>
-				<p class="about-summary">
-					Hi, I'm a software developer and IT support specialist with
-					a passion for building clean, accessible experiences. I
-					enjoy solving technical challenges and helping users get the
-					most out of technology.
-				</p>
-				<h3 class="about-subheading">How I work</h3>
-				<ul class="about-list" role="list">
-					<li>Collaborative and iterative approach</li>
-					<li>Focus on accessibility and maintainability</li>
-					<li>Continuous learning and adapting</li>
-				</ul>
+<div class="about flex-col w-full min-h-screen" aria-labelledby="about-heading">
+	<div class="about-layout flex-row w-full min-h-screen">
+		<div class="about-content-column flex-col justify-center align-stretch min-h-0">
+			<div
+				class="about-content-wrapper flex-col align-stretch justify-center w-full max-w-full bg-transparent"
+				[class.about-content-wrapper--revealed]="cardsRevealed()"
+				[class.about-content-wrapper--instant]="instantReveal()"
+			>
+				<app-about-card
+					[labelledBy]="'about-card-me-title'"
+					[stackIndex]="0"
+					[accent]="'blue'"
+				>
+					<div class="about-card-heading flex-row align-center">
+						<span
+							class="material-symbols-outlined mat-icon--md about-card-icon"
+							aria-hidden="true"
+						>
+							person
+						</span>
+						<h3 id="about-card-me-title" class="about-subheading">
+							About me
+						</h3>
+					</div>
+					<p class="about-summary">
+						I'm a software developer and IT support specialist with
+						a passion for building clean, accessible experiences. I
+						enjoy solving technical challenges and helping users get
+						the most out of technology.
+					</p>
+				</app-about-card>
+				<app-about-card
+					[labelledBy]="'about-card-work-title'"
+					[stackIndex]="1"
+					[accent]="'purple'"
+				>
+					<div class="about-card-heading flex-row align-center">
+						<span
+							class="material-symbols-outlined mat-icon--md about-card-icon"
+							aria-hidden="true"
+						>
+							settings
+						</span>
+						<h3 id="about-card-work-title" class="about-subheading">
+							How I work
+						</h3>
+					</div>
+					<ul class="about-list" role="list">
+						<li>Collaborative and iterative approach</li>
+						<li>Focus on accessibility and maintainability</li>
+						<li>Continuous learning and adapting</li>
+					</ul>
+				</app-about-card>
+				<app-about-card
+					[labelledBy]="'about-card-bring-title'"
+					[stackIndex]="2"
+					[accent]="'teal'"
+				>
+					<div class="about-card-heading flex-row align-center">
+						<span
+							class="material-symbols-outlined mat-icon--md about-card-icon"
+							aria-hidden="true"
+						>
+							handyman
+						</span>
+						<h3
+							id="about-card-bring-title"
+							class="about-subheading"
+						>
+							What I bring
+						</h3>
+					</div>
+					<ul class="about-list" role="list">
+						<li>
+							End-to-end ownership from support tickets to shipped
+							features
+						</li>
+						<li>
+							Clear communication with users, teammates, and
+							stakeholders
+						</li>
+						<li>
+							Pragmatic solutions that balance speed, quality, and
+							long-term maintainability
+						</li>
+					</ul>
+				</app-about-card>
 			</div>
 		</div>
 
-		<!-- Planet column (70% on large, full width on small, appears second when stacked) -->
-		<div class="about-planet-column">
-			<div class="planet-inner">
+		<div class="about-planet-column flex-row align-stretch justify-center">
+			<div class="planet-inner flex-row align-center justify-center min-h-0">
 				<div
-					class="planet-placeholder"
+					class="planet-placeholder flex-col align-center justify-center"
 					aria-label="Planet system placeholder"
 				>
-					<span class="planet-placeholder-text">My Skills</span>
+					<span class="planet-placeholder-text text-center">My Skills</span>
 				</div>
 			</div>
 		</div>

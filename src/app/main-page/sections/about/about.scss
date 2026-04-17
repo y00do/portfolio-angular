@@ -1,8 +1,6 @@
 @use "../../../shared/styles/mixins" as *;
 
 .about {
-	width: 100%;
-	min-height: 100vh;
 	background-color: var(--main-page-background);
 	color: var(--secondary);
 }
@@ -19,52 +17,81 @@
 }
 
 .about-layout {
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	min-height: 100vh;
-	background: #0f0f0f;
-	background: linear-gradient(90deg, rgba(15, 15, 15, 1) 0%, rgba(15, 15, 15, 1) 25%, rgba(0, 0, 0, 1) 100%);
+	background: linear-gradient(
+		90deg,
+		var(--main-page-background) 0%,
+		var(--main-page-background) 25%,
+		var(--site-background) 100%
+	);
 }
 
-/* Content column: 30% on large screens */
 .about-content-column {
 	flex: 0 0 30%;
-	display: flex;
-	align-items: stretch;
 }
 
 .about-content-wrapper {
-	background-color: transparent;
-	padding: 4rem;
-	gap: 2rem;
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	border-radius: 1rem;
-	margin: 4rem 0 4rem 4rem;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-	border: 1px solid var(--primary);
+	box-sizing: border-box;
+	padding-block: 4rem;
+	padding-inline-end: 3rem;
+	padding-inline-start: calc(3rem + 2rem);
+	gap: 4rem;
+	margin: 4rem 0;
 }
 
-.about-label {
-	font-size: 0.9rem;
-	font-weight: 700;
-	letter-spacing: 0.15em;
-	color: var(--primary-accent);
+.about-content-wrapper > app-about-card {
+	min-width: 0;
+}
+
+/* Desktop / tablet: alternating horizontal placement */
+@media (min-width: 769px) {
+	.about-content-wrapper > app-about-card:nth-child(odd) {
+		align-self: flex-end;
+	}
+
+	.about-content-wrapper > app-about-card:nth-child(even) {
+		align-self: flex-start;
+	}
+}
+
+/* Mobile: full width, single column, no alternation */
+@media (max-width: 768px) {
+	.about-content-wrapper {
+		gap: 1.4rem;
+	}
+
+	.about-content-wrapper > app-about-card {
+		align-self: stretch;
+		width: 100%;
+		max-width: 100%;
+	}
 }
 
 .about-summary {
-	font-size: 1.1rem;
-	line-height: 1.7;
-	color: var(--primary-accent);
+	font-size: 1.05rem;
+	line-height: 1.75;
+	color: color-mix(in srgb, var(--secondary-accent) 84%, var(--surface) 16%);
 }
 
 .about-subheading {
-	font-size: 1.25rem;
-	font-weight: 600;
+	font-size: 1.35rem;
+	font-weight: 700;
+	line-height: 1.25;
 	color: var(--secondary);
-	margin-top: 0.5rem;
+	margin: 0;
+}
+
+.about .about-subheading {
+	letter-spacing: 0.02em;
+}
+
+.about-card-heading {
+	gap: 0.65rem;
+}
+
+.about-card-icon {
+	color: var(--about-card-heading-accent, var(--primary-accent));
+	line-height: 1;
+	font-size: 1.75rem;
 }
 
 .about-list {
@@ -72,9 +99,9 @@
 	gap: 0.75rem;
 	display: flex;
 	flex-direction: column;
-	color: var(--primary-accent);
+	color: color-mix(in srgb, var(--secondary-accent) 82%, var(--surface) 18%);
 	font-size: 1rem;
-	line-height: 1.5;
+	line-height: 1.7;
 
 	li {
 		position: relative;
@@ -84,28 +111,32 @@
 			content: "•";
 			position: absolute;
 			left: 0;
-			color: var(--primary);
+			color: var(--about-card-heading-accent, var(--primary));
 		}
 	}
 }
 
-/* Planet column (outer): 70% on large screens - shares layout gradient */
+.about-content-wrapper > app-about-card:nth-child(1) {
+	--about-card-heading-accent: var(--accent-blue);
+}
+
+.about-content-wrapper > app-about-card:nth-child(2) {
+	--about-card-heading-accent: var(--accent-purple);
+}
+
+.about-content-wrapper > app-about-card:nth-child(3) {
+	--about-card-heading-accent: var(--accent-teal);
+}
+
 .about-planet-column {
 	flex: 0 0 70%;
-	display: flex;
-	align-items: stretch;
-	justify-content: center;
 	background-color: transparent;
 	padding: 4rem;
 	min-height: 60vh;
 }
 
-/* Planet inner container - transparent to show shared gradient */
 .planet-inner {
 	flex: 1;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	background-color: transparent;
 	min-height: 100%;
 }
@@ -125,10 +156,8 @@
 	font-weight: 600;
 	letter-spacing: 0.05em;
 	color: var(--secondary);
-	text-align: center;
 }
 
-/* ===== Responsive: stacked layout below 1440px ===== */
 @media (max-width: 1439px) {
 	.about-layout {
 		flex-direction: column;
@@ -140,8 +169,10 @@
 	}
 
 	.about-content-wrapper {
-		margin: 4rem 4rem 2rem;
-		padding: 3rem;
+		margin: 4rem 0 2rem;
+		padding-block: 3rem;
+		padding-inline-end: 4rem;
+		padding-inline-start: calc(4rem + 2rem);
 	}
 
 	.about-planet-column {
@@ -155,9 +186,10 @@
 
 @media (max-width: 768px) {
 	.about-content-wrapper {
-		margin: 3rem 2rem 2rem;
-		padding: 2.5rem;
-		gap: 1.5rem;
+		margin: 3rem 0 2rem;
+		padding-block: 2.5rem;
+		padding-inline-end: 2rem;
+		padding-inline-start: calc(2rem + 2rem);
 	}
 
 	.about-summary {
@@ -183,13 +215,11 @@
 
 @media (max-width: 480px) {
 	.about-content-wrapper {
-		margin: 2rem 1.25rem 1.5rem;
-		padding: 2rem;
-		gap: 1.25rem;
-	}
-
-	.about-label {
-		font-size: 0.85rem;
+		margin: 2rem 0 1.5rem;
+		padding-block: 2rem;
+		padding-inline-end: 1.25rem;
+		padding-inline-start: calc(1.25rem + 2rem);
+		gap: 1.2rem;
 	}
 
 	.about-planet-column {
