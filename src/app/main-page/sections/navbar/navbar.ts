@@ -14,6 +14,7 @@ export class Navbar implements OnDestroy {
 	private readonly scrollListener: () => void;
 
 	@HostBinding('class.scrolled') scrolled = false;
+	isMenuOpen = false;
 
 	constructor() {
 		// Use throttled passive listener for better performance
@@ -30,6 +31,14 @@ export class Navbar implements OnDestroy {
 
 	ngOnDestroy(): void {
 		this.document.removeEventListener('scroll', this.scrollListener);
+	}
+
+	toggleMenu(): void {
+		this.isMenuOpen = !this.isMenuOpen;
+	}
+
+	closeMenu(): void {
+		this.isMenuOpen = false;
 	}
 
 	private updateScrollState(): void {

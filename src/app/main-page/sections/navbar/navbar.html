@@ -7,9 +7,30 @@
 		<a href="#home" class="logo" aria-label="Yen Do - Home">YEN DO</a>
 	</div>
 	<div class="navbar-end flex-row align-center">
-		<ul class="nav-links flex-row align-center" role="list">
+		<button
+			class="menu-toggle justify-center align-center"
+			type="button"
+			(click)="toggleMenu()"
+			[attr.aria-expanded]="isMenuOpen"
+			aria-controls="main-nav-links"
+			[attr.aria-label]="isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'"
+		>
+			<span class="material-symbols-outlined mat-icon--md" aria-hidden="true">{{
+				isMenuOpen ? 'close' : 'menu'
+			}}</span>
+		</button>
+
+		<ul
+			id="main-nav-links"
+			class="nav-links flex-row align-center"
+			role="list"
+			[class.open]="isMenuOpen"
+		>
 			<li role="listitem">
-				<a href="#about" aria-label="Navigate to About section"
+				<a
+					href="#about"
+					aria-label="Navigate to About section"
+					(click)="closeMenu()"
 					>ABOUT</a
 				>
 			</li>
@@ -17,18 +38,37 @@
 				<a
 					href="#experience"
 					aria-label="Navigate to Experience section"
+					(click)="closeMenu()"
 					>EXPERIENCE</a
 				>
 			</li>
 			<li role="listitem">
-				<a href="#projects" aria-label="Navigate to Projects section"
+				<a
+					href="#projects"
+					aria-label="Navigate to Projects section"
+					(click)="closeMenu()"
 					>PROJECTS</a
 				>
+			</li>
+			<li role="listitem" class="mobile-contact">
+				<button
+					class="btn-contact"
+					type="button"
+					aria-label="Contact me"
+					(click)="closeMenu()"
+				>
+					CONTACT
+				</button>
 			</li>
 		</ul>
 
 		<div class="nav-button flex-row align-center justify-center">
-			<button class="btn-contact" type="button" aria-label="Contact me">
+			<button
+				class="btn-contact"
+				type="button"
+				aria-label="Contact me"
+				(click)="closeMenu()"
+			>
 				CONTACT
 			</button>
 		</div>
