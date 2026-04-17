@@ -23,6 +23,13 @@
     --secondary: #e1eae5;
     --secondary-accent: #dce5e1;
     --secondary-transparent: #e1eae50a;
+
+    --accent-blue: #59708a;
+    --accent-blue-transparent: #59708a33;
+    --accent-purple: #6f627f;
+    --accent-purple-transparent: #6f627f33;
+    --accent-teal: #3f7163;
+    --accent-teal-transparent: #3f716333;
 }
 
 html {
@@ -75,4 +82,45 @@ body {
 
 .align-end {
     align-items: end;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+/* Global Layout / Spacing Utilities */
+.block {
+    display: block;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.max-w-full {
+    max-width: 100%;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.min-h-0 {
+    min-height: 0;
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.gap-sm {
+    gap: 0.75rem;
+}
+
+.gap-md {
+    gap: 1rem;
 }
