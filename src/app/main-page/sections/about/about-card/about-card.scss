@@ -1,0 +1,110 @@
+/*
+ * About card: ~max-w-xl (36rem), offset shadows only (no centered glow).
+ * Alternating left/right is controlled by parent flex align-self on app-about-card.
+ */
+:host {
+	display: block;
+	width: min(100%, 36rem);
+	max-width: 36rem;
+	min-width: 0;
+}
+
+.about-card {
+	--about-card-accent: var(--accent-blue);
+	--about-card-accent-transparent: var(--accent-blue-transparent);
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	box-shadow: none;
+}
+
+.about-card__inner {
+	position: relative;
+	gap: 1.1rem;
+	padding: 1.75rem 2rem;
+	min-height: 0;
+	border-radius: 1rem;
+	background: linear-gradient(180deg, var(--surface) 0%, var(--surface-accent) 100%);
+	border: 1px solid color-mix(in srgb, var(--surface-accent) 70%, var(--secondary-transparent) 30%);
+	border-inline-start: 1.5rem solid var(--about-card-accent);
+	box-shadow: 0 10px 24px var(--site-background);
+	opacity: 0;
+	transform: translateX(-1.5rem);
+	transition:
+		opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--about-card-stagger, 0ms),
+		transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--about-card-stagger, 0ms),
+		box-shadow 0.25s ease var(--about-card-stagger, 0ms),
+		border-color 0.25s ease var(--about-card-stagger, 0ms);
+}
+
+.about-card__inner::after {
+	content: "";
+	position: absolute;
+	inset: 0.35rem;
+	pointer-events: none;
+}
+
+.about-card--accent-blue {
+	--about-card-accent: var(--accent-blue);
+	--about-card-accent-transparent: var(--accent-blue-transparent);
+}
+
+.about-card--accent-purple {
+	--about-card-accent: var(--accent-purple);
+	--about-card-accent-transparent: var(--accent-purple-transparent);
+}
+
+.about-card--accent-teal {
+	--about-card-accent: var(--accent-teal);
+	--about-card-accent-transparent: var(--accent-teal-transparent);
+}
+
+:host-context(.about-content-wrapper--instant) .about-card__inner,
+.about-card--entered .about-card__inner {
+	opacity: 1;
+	transform: translate(0, 0);
+}
+
+/* Scroll-based “light up”: per-card .about-card--glow (IntersectionObserver) */
+:host-context(.about-content-wrapper--instant) .about-card__inner,
+.about-card--entered.about-card--glow .about-card__inner {
+	box-shadow:
+		0 10px 24px var(--site-background),
+		0 0 0 1px var(--about-card-accent-transparent);
+}
+
+:host-context(.about-content-wrapper--instant) .about-card__inner {
+	transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.about-card__inner {
+		opacity: 1;
+		transform: translate(0, 0);
+		box-shadow:
+			0 10px 24px var(--site-background),
+			0 0 0 1px var(--about-card-accent-transparent);
+		transition: none;
+	}
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+	.about-card--entered.about-card--glow .about-card__inner:hover,
+	:host-context(.about-content-wrapper--instant) .about-card__inner:hover {
+		transform: translateY(-4px);
+		box-shadow:
+			0 16px 30px var(--site-background),
+			0 0 0 1px var(--about-card-accent-transparent),
+			0 0 24px var(--about-card-accent-transparent);
+		border-color: color-mix(in srgb, var(--surface-accent) 60%, var(--about-card-accent-transparent) 40%);
+	}
+}
+
+/* Mobile: full width inside column (parent sets align-self stretch + width) */
+@media (max-width: 768px) {
+	:host {
+		width: 100%;
+		max-width: 100%;
+	}
+}

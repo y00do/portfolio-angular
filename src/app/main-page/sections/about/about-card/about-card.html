@@ -1,0 +1,12 @@
+<article
+	class="about-card flex-col w-full"
+	[attr.aria-labelledby]="labelledBy()"
+	[style.--about-card-stagger]="(stackIndex() * 90) + 'ms'"
+	[class.about-card--accent-blue]="accent() === 'blue'"
+	[class.about-card--accent-purple]="accent() === 'purple'"
+	[class.about-card--accent-teal]="accent() === 'teal'"
+>
+	<div class="about-card__inner flex-col">
+		<ng-content />
+	</div>
+</article>
