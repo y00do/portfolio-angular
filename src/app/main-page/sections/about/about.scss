@@ -53,19 +53,6 @@
 	}
 }
 
-/* Mobile: full width, single column, no alternation */
-@media (max-width: 768px) {
-	.about-content-wrapper {
-		gap: 1.4rem;
-	}
-
-	.about-content-wrapper > app-about-card {
-		align-self: stretch;
-		width: 100%;
-		max-width: 100%;
-	}
-}
-
 .about-summary {
 	font-size: 1.05rem;
 	line-height: 1.75;
@@ -78,9 +65,6 @@
 	line-height: 1.25;
 	color: var(--secondary);
 	margin: 0;
-}
-
-.about .about-subheading {
 	letter-spacing: 0.02em;
 }
 
@@ -186,18 +170,25 @@
 
 @media (max-width: 768px) {
 	.about-content-wrapper {
+		gap: 1.4rem;
 		margin: 3rem 0 2rem;
 		padding-block: 2.5rem;
 		padding-inline-end: 2rem;
-		padding-inline-start: calc(2rem + 2rem);
+		padding-inline-start: 2rem;
+	}
+
+	.about-content-wrapper > app-about-card {
+		align-self: stretch;
+		width: 100%;
+		max-width: 100%;
 	}
 
 	.about-summary {
-		font-size: 1rem;
+		font-size: 0.95rem;
 	}
 
 	.about-subheading {
-		font-size: 1.1rem;
+		font-size: 1rem;
 	}
 
 	.about-planet-column {
@@ -211,6 +202,15 @@
 	.planet-placeholder-text {
 		font-size: 1.25rem;
 	}
+
+	.about-list {
+		font-size: 0.93rem;
+		line-height: 1.6;
+	}
+
+	.about-card-icon {
+		font-size: 1.5rem;
+	}
 }
 
 @media (max-width: 480px) {
@@ -218,7 +218,7 @@
 		margin: 2rem 0 1.5rem;
 		padding-block: 2rem;
 		padding-inline-end: 1.25rem;
-		padding-inline-start: calc(1.25rem + 2rem);
+		padding-inline-start: 1rem;
 		gap: 1.2rem;
 	}
 
