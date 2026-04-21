@@ -83,3 +83,13 @@
 		}
 	}
 }
+
+@media (max-width: 1439px) {
+	.main-page-wrapper {
+		.main-page-container {
+			.section-landing {
+				background: var(--main-page-background);
+			}
+		}
+	}
+}
