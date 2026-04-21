@@ -1,6 +1,8 @@
 <div class="about flex-col w-full min-h-screen" aria-labelledby="about-heading">
 	<div class="about-layout flex-row w-full min-h-screen">
-		<div class="about-content-column flex-col justify-center align-stretch min-h-0">
+		<div
+			class="about-content-column flex-col justify-center align-stretch min-h-0"
+		>
 			<div
 				class="about-content-wrapper flex-col align-stretch justify-center w-full max-w-full bg-transparent"
 				[class.about-content-wrapper--revealed]="cardsRevealed()"
@@ -89,12 +91,57 @@
 		</div>
 
 		<div class="about-planet-column flex-row align-stretch justify-center">
-			<div class="planet-inner flex-row align-center justify-center min-h-0">
+			<div
+				class="planet-inner flex-row align-center justify-center min-h-0"
+			>
 				<div
-					class="planet-placeholder flex-col align-center justify-center"
-					aria-label="Planet system placeholder"
+					class="planet-system"
+					[class.planet-system--paused]="!rotationEnabled()"
+					[style.--system-scale]="systemScale()"
+					aria-label="My skills orbital system"
 				>
-					<span class="planet-placeholder-text text-center">My Skills</span>
+					@for (layer of ringLayers(); track layer.ringIndex) {
+						<div
+							class="orbit-ring"
+							[style.--ring-index]="layer.ringIndex"
+						>
+							<div
+							class="orbit-rotator orbit-ring--spin"
+							>
+								@for (planet of layer.planets; track planet.label) {
+									<div
+										class="planet-node"
+										[style.--planet-angle]="
+											planet.angle + 'deg'
+										"
+									>
+										<span class="planet-label text-center">{{
+											planet.label
+										}}</span>
+									</div>
+								}
+							</div>
+						</div>
+					}
+					<div
+						class="planet-core flex-col align-center justify-center"
+					>
+						<span class="planet-core-text text-center"
+							>My Skills</span
+						>
+						<button
+							type="button"
+							class="planet-rotation-toggle"
+							(click)="toggleRotation()"
+							[attr.aria-pressed]="rotationEnabled()"
+						>
+							{{
+								rotationEnabled()
+									? "Pause Rotation"
+									: "Resume Rotation"
+							}}
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
