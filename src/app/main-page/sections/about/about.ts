@@ -3,6 +3,7 @@ import {
 	Component,
 	DestroyRef,
 	ElementRef,
+	computed,
 	inject,
 	signal,
 } from '@angular/core';
@@ -27,6 +28,57 @@ export class About {
 
 	/** Cards visible (animated or instant) */
 	protected readonly cardsRevealed = signal(false);
+	protected readonly rotationEnabled = signal(true);
+
+	private readonly skillPlanets = [
+		'Angular',
+		'TypeScript',
+		'JavaScript',
+		'HTML',
+		'SCSS',
+		'Tailwind',
+		'Node.js',
+		'Python',
+		'Git',
+		'REST APIs',
+		'Accessibility',
+		'UI/UX',
+	];
+
+	protected readonly planets = computed(() => this.skillPlanets.slice(0, 12));
+
+	protected readonly ringLayers = computed(() => {
+		const items = this.planets();
+		const ringCount = items.length > 6 ? 2 : 1;
+		const firstRingCount = Math.min(6, items.length);
+		const secondRingCount = Math.min(6, Math.max(items.length - 6, 0));
+		const ringSizes = ringCount === 1 ? [firstRingCount] : [firstRingCount, secondRingCount];
+
+		let cursor = 0;
+		return ringSizes
+			.filter((count) => count > 0)
+			.map((count, ringIndex) => {
+				const ringPlanets = items.slice(cursor, cursor + count);
+				cursor += count;
+
+				return {
+					ringIndex,
+					planets: ringPlanets.map((label, planetIndex) => ({
+						label,
+						// Even angular spacing keeps planets opposite each other when count is low.
+						angle: (360 / count) * planetIndex,
+					})),
+				};
+			});
+	});
+
+	protected readonly systemScale = computed(() => {
+		const planetCount = this.planets().length;
+		if (planetCount <= 3) return 1.18;
+		if (planetCount <= 6) return 1.04;
+		if (planetCount <= 9) return 0.94;
+		return 0.86;
+	});
 
 	constructor() {
 		afterNextRender(() => {
@@ -57,6 +109,10 @@ export class About {
 			this.setupCardRevealObservers();
 			this.setupCardGlowObservers();
 		});
+	}
+
+	protected toggleRotation(): void {
+		this.rotationEnabled.update((enabled) => !enabled);
 	}
 
 	private applyAllCardReveal(): void {
