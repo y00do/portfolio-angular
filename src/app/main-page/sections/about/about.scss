@@ -173,6 +173,10 @@
 	animation-play-state: paused;
 }
 
+.planet-system--paused .planet-label {
+	animation-play-state: paused;
+}
+
 .planet-node {
 	position: absolute;
 	top: 50%;
@@ -199,6 +203,8 @@
 		0 0 0 1px color-mix(in srgb, var(--primary-transparent) 35%, transparent),
 		0 0 16px rgba(0, 0, 0, 0.24);
 	opacity: calc(1 - (0.1 * var(--ring-index)));
+	animation: orbit-counter-rotation linear infinite;
+	animation-duration: calc(28s + (12s * var(--ring-index)));
 }
 
 .planet-core {
@@ -253,6 +259,15 @@
 	}
 	to {
 		transform: rotate(360deg);
+	}
+}
+
+@keyframes orbit-counter-rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
 	}
 }
 
