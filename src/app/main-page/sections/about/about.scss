@@ -221,9 +221,55 @@
 		color-mix(in srgb, var(--primary-accent) 18%, var(--surface) 82%),
 		var(--surface)
 	);
-	box-shadow: 0 0 28px rgba(0, 0, 0, 0.35);
-	gap: 0.8rem;
+	box-shadow:
+		0 0 20px rgba(0, 0, 0, 0.3),
+		0 0 0 1px color-mix(in srgb, var(--primary-transparent) 35%, transparent);
+	gap: 0;
 	padding: 1rem;
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+	text-align: center;
+	color: inherit;
+	transition:
+		border-color 0.25s ease,
+		box-shadow 0.25s ease,
+		background-color 0.25s ease,
+		filter 0.25s ease;
+
+	&:hover,
+	&:focus-visible {
+		border-color: color-mix(in srgb, var(--primary) 65%, transparent);
+		box-shadow:
+			0 0 34px color-mix(in srgb, var(--primary-accent) 35%, rgba(0, 0, 0, 0.22)),
+			0 0 0 1px color-mix(in srgb, var(--primary) 55%, transparent);
+	}
+}
+
+.planet-system--paused .planet-core {
+	background: radial-gradient(
+		circle at 32% 30%,
+		color-mix(in srgb, var(--surface) 92%, black 8%),
+		color-mix(in srgb, var(--surface) 82%, black 18%)
+	);
+	border-color: color-mix(in srgb, var(--secondary) 22%, transparent);
+	box-shadow:
+		0 0 14px rgba(0, 0, 0, 0.24),
+		0 0 0 1px color-mix(in srgb, var(--secondary) 14%, transparent);
+	filter: saturate(0.82) brightness(0.9);
+}
+
+.planet-system:not(.planet-system--paused) .planet-core {
+	background: radial-gradient(
+		circle at 32% 30%,
+		color-mix(in srgb, var(--primary-accent) 30%, var(--surface) 70%),
+		color-mix(in srgb, var(--surface) 78%, var(--primary-transparent) 22%)
+	);
+	border-color: color-mix(in srgb, var(--primary) 62%, transparent);
+	box-shadow:
+		0 0 34px color-mix(in srgb, var(--primary-accent) 32%, rgba(0, 0, 0, 0.2)),
+		0 0 0 1px color-mix(in srgb, var(--primary) 45%, transparent);
+	filter: saturate(1.12) brightness(1.04);
 }
 
 .planet-core-text {
@@ -231,26 +277,6 @@
 	font-weight: 700;
 	letter-spacing: 0.03em;
 	color: var(--secondary);
-}
-
-.planet-rotation-toggle {
-	border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
-	background-color: color-mix(in srgb, var(--surface) 88%, var(--primary-transparent) 12%);
-	color: var(--secondary);
-	border-radius: 999px;
-	padding: 0.4rem 0.9rem;
-	font-size: calc(0.76rem * var(--system-scale));
-	font-weight: 600;
-	cursor: pointer;
-	transition:
-		border-color 0.25s ease,
-		background-color 0.25s ease;
-
-	&:hover,
-	&:focus-visible {
-		border-color: color-mix(in srgb, var(--primary) 65%, transparent);
-		background-color: color-mix(in srgb, var(--surface) 74%, var(--primary-transparent) 26%);
-	}
 }
 
 @keyframes orbit-rotation {
@@ -373,7 +399,4 @@
 		font-size: calc(1.18rem * var(--system-scale));
 	}
 
-	.planet-rotation-toggle {
-		font-size: calc(0.68rem * var(--system-scale));
-	}
 }

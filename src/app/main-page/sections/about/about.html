@@ -123,25 +123,14 @@
 							</div>
 						</div>
 					}
-					<div
+					<button
+						type="button"
 						class="planet-core flex-col align-center justify-center"
+						(click)="toggleRotation()"
+						[attr.aria-pressed]="rotationEnabled()"
 					>
-						<span class="planet-core-text text-center"
-							>My Skills</span
-						>
-						<button
-							type="button"
-							class="planet-rotation-toggle"
-							(click)="toggleRotation()"
-							[attr.aria-pressed]="rotationEnabled()"
-						>
-							{{
-								rotationEnabled()
-									? "Pause Rotation"
-									: "Resume Rotation"
-							}}
-						</button>
-					</div>
+						<span class="planet-core-text text-center">My Skills</span>
+					</button>
 				</div>
 			</div>
 		</div>
